@@ -13,6 +13,7 @@ public class RestaurantsMainViewController: UIViewController {
 
     public init(viewModel: RestaurantsMainViewModel) {
         self.viewModel = viewModel
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -53,6 +54,19 @@ extension RestaurantsMainViewController: UITableViewDelegate, UITableViewDataSou
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let selectedCell = tableView.cellForRow(at: indexPath) as? RestaurantsTableViewCell
+        
+        guard let selectedCell = selectedCell else {
+            print("Couldn't find or cast table view cell to our custom type!")
+            return
+        }
+        
+        let detailVC = DependencyProvider.getDetailScreen(restaurant: viewModel.restaurants[indexPath.row],
+                                                          restaurantImage: selectedCell.loadedImage)
+        
+        self.present(detailVC, animated: true)
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,7 +93,6 @@ extension RestaurantsMainViewController: UITableViewDelegate, UITableViewDataSou
             }
 
             DispatchQueue.main.async {
-                // TODO: Fix redundant contentConfiguration
                 cell.showOrHideActivityIndicator(show: false, cell: cell)
                 cell.loadedImage = UIImage(data: imageData)
             }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 public protocol RestaurantsData {
     func getRestaurantsData() async -> [Restaurant]
