@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "RestaurantsFeature",
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "RestaurantsFeature",
@@ -17,6 +18,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "RestaurantsFeatureTests",
-            dependencies: ["RestaurantsFeature"]),
+            dependencies: ["RestaurantsFeature"], resources: [Resource.process("Assets.xcassets")] ),
     ]
 )
