@@ -24,6 +24,11 @@ public class RestaurantsMainViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        let activityIndicatorView = UIActivityIndicatorView(style: .large)
+        
+        activityIndicatorView.startAnimating()
+        tableView.backgroundView = activityIndicatorView
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -45,6 +50,7 @@ public class RestaurantsMainViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                self?.tableView.backgroundView = nil
             }
         }
     }

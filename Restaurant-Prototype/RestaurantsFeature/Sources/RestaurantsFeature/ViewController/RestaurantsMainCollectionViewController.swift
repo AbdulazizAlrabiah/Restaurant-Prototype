@@ -80,6 +80,11 @@ public class RestaurantsMainCollectionViewController: UICollectionViewController
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        let activityIndicatorView = UIActivityIndicatorView(style: .large)
+        
+        activityIndicatorView.startAnimating()
+        collectionView.backgroundView = activityIndicatorView
+        
         collectionView.backgroundColor = .systemGray6
         getRestaurants()
     }
@@ -110,6 +115,7 @@ public class RestaurantsMainCollectionViewController: UICollectionViewController
             
             DispatchQueue.main.async {
                 self?.applyInitialSnapshots()
+                self?.collectionView.backgroundView = nil
             }
         }
     }
