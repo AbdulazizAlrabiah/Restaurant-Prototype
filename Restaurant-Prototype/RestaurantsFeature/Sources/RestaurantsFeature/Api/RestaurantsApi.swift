@@ -16,7 +16,8 @@ public class RestaurantsApi: RestaurantsData {
             fatalError("Malformed URL!")
         }
         
-        let urlRequest = URLRequest(url: url)
+        // Since it's a prototype we will favor the cached data
+        let urlRequest = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
         
         let data: Data
         let response: URLResponse
@@ -47,7 +48,8 @@ public class RestaurantsApi: RestaurantsData {
             return nil
         }
         
-        let urlRequest = URLRequest(url: url)
+        // Since it's a prototype we will favor the cached data
+        let urlRequest = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
         
         let data: Data
         

@@ -27,6 +27,7 @@ public class RestaurantsMainViewModel {
         sortRestaurants()
     }
     
+    // TODO: Remove the background of the logos using CoreML dynamically, because of the shifing in Jan Burger's logo (May solve the issue)
     func getImageData(url: String) async -> Data? {
         return await restaurantsData.getRestaurantsImageData(url: url)
     }
