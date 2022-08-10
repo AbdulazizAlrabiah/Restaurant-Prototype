@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Restaurant: Codable {
+public struct Restaurant: Codable, Hashable {
     
     let id: Int
     let name: String
