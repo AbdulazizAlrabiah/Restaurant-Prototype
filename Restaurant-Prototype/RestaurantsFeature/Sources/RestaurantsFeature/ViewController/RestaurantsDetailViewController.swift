@@ -28,7 +28,7 @@ class RestaurantsDetailViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .systemGray5
+        self.view.backgroundColor = .systemGray4
         
         restaurantImage = viewModel.resizeImageIfLargerThan(image: restaurantImage, largerThan: CGSize(width: 300, height: 300))
         

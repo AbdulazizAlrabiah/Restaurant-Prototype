@@ -32,6 +32,8 @@ public class RestaurantsMainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.backgroundColor = .systemGray6
+        
         self.view.addSubview(tableView)
         
         getRestaurants()

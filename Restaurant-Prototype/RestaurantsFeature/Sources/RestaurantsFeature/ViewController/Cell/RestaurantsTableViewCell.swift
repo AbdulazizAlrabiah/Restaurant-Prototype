@@ -27,7 +27,7 @@ class RestaurantsTableViewCell: UITableViewCell {
         content.imageProperties.maximumSize = CGSize(width: 56, height: 56)
         content.imageProperties.reservedLayoutSize = CGSize(width: 56, height: 56)
         
-        // TODO: Modify cell to a very light gray color
+        self.backgroundColor = .systemGray6
         
         content.image = self.loadedImage
         content.text = self.customText
