@@ -10,12 +10,12 @@ import UIKit
 class DependencyProvider {
     
     static func getDetailScreen(restaurant: Restaurant, restaurantImage: UIImage?) -> RestaurantsDetailViewController {
-        return RestaurantsDetailViewController(viewModel: detailScreenVM,
+        return RestaurantsDetailViewController(viewModel: getDetailScreenVM,
                                                restaurant: restaurant,
                                                restaurantImage: restaurantImage)
     }
     
-    static var detailScreenVM: RestaurantsDetailViewModel {
+    static var getDetailScreenVM: RestaurantsDetailViewModel {
         return RestaurantsDetailViewModel()
     }
 }
