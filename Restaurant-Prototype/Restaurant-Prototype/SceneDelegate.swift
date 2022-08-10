@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RestaurantsFeature
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,7 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = RestaurantsMainViewController(viewModel: RestaurantsMainViewModel(restaurantsData: RestaurantsApi()))
+        
+        #if COLLECTION_VIEW
+        let vc = MainDependencyProvider.getMainCollectionScreen
+        #else
+        let vc = MainDependencyProvider.getMainScreen
+        #endif
+        
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
 }
